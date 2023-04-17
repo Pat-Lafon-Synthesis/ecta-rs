@@ -91,6 +91,10 @@ impl<S: ECTATrait, EQ: ECTATrait + PathConstraintStringify> ECTA<S, EQ> {
         Self { g, map, empty_node }
     }
 
+    pub fn get_edges(&self, n: ECTANode) -> Vec<Edge<S, EQ>> {
+        self.g.edges(n).map(|e| e.weight().clone()).collect()
+    }
+
     pub fn add_node(
         &mut self,
         n: Node,
