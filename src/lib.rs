@@ -13,7 +13,7 @@ pub type ECTANode = NodeIndex;
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub struct Edge<T, EQ: PathConstraintStringify> {
-    data: T,
+    pub data: T,
     constraints: Option<Constraints<EQ>>,
     edge_num: u8, // Essentially the order of args
     nodeidx: ECTANode,
