@@ -16,7 +16,7 @@ pub struct Edge<T, EQ: PathConstraintStringify> {
     pub data: T,
     constraints: Option<Constraints<EQ>>,
     edge_num: u8, // Essentially the order of args
-    nodeidx: ECTANode,
+    pub nodeidx: ECTANode,
 }
 
 impl<T, EQ: PathConstraintStringify> Edge<T, EQ> {
