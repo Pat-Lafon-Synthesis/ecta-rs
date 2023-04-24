@@ -2,11 +2,11 @@ use std::fmt::Debug;
 use std::hash::Hash;
 use std::{collections::HashMap, fmt::Display};
 
-use itertools::Itertools;
-use petgraph::visit::{EdgeRef, IntoEdgeReferences};
+use itertools::{GroupingMapBy, Itertools};
 use petgraph::{
     dot::Dot,
     stable_graph::{EdgeReference, NodeIndex, StableGraph},
+    visit::{EdgeRef, IntoEdgeReferences},
 };
 
 pub type ECTANode = NodeIndex;
@@ -15,7 +15,7 @@ pub type ECTANode = NodeIndex;
 pub struct Edge<T, EQ: PathConstraintStringify> {
     pub data: T,
     constraints: Option<Constraints<EQ>>,
-    edge_num: u8, // Essentially the order of args
+    pub edge_num: u8, // Essentially the order of args
     pub nodeidx: ECTANode,
 }
 
