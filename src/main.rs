@@ -1,4 +1,4 @@
-use petgraph_test::{Constraints, Node, ECTA};
+use ecta_rs::{Constraints, Node, ECTA};
 
 pub fn fig_1_d() {
     let mut ecta: ECTA<&'static str, ()> = ECTA::new();
