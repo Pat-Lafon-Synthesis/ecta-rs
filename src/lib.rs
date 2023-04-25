@@ -33,6 +33,15 @@ impl<T, EQ: PathConstraintStringify> Edge<T, EQ> {
             nodeidx,
         }
     }
+
+    pub fn map<U>(self, f: impl Fn(T) -> U) -> Edge<U, EQ> {
+        Edge {
+            data: f(self.data),
+            constraints: self.constraints,
+            edge_num: self.edge_num,
+            nodeidx: self.nodeidx,
+        }
+    }
 }
 
 impl<T: Display, R: PathConstraintStringify> Display for Edge<T, R> {
