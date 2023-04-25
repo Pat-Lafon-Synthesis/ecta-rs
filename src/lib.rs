@@ -91,8 +91,8 @@ impl<S: ECTATrait, EQ: ECTATrait + PathConstraintStringify> ECTA<S, EQ> {
         Self { g, map, empty_node }
     }
 
-    pub fn get_edges(&self, n: ECTANode) -> Vec<Edge<S, EQ>> {
-        self.g.edges(n).map(|e| e.weight().clone()).collect()
+    pub fn get_edges<'a>(&'a self, n: ECTANode) -> impl Iterator<Item = &Edge<S, EQ>> + 'a {
+        self.g.edges(n).map(|e| e.weight())
     }
 
     pub fn add_node(
