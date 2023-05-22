@@ -23,7 +23,7 @@ pub fn fig_1_d() {
             vec![q2, q2],
         )],
     );
-    println!("{}", ecta.get_dot());
+    println!("{}", ecta.get_dot(&[]));
 }
 
 pub fn fig_2() {
@@ -65,7 +65,7 @@ pub fn fig_2() {
         )],
     );
 
-    println!("{}", ecta.get_dot());
+    println!("{}", ecta.get_dot(&[]));
 }
 /*
 pub fn fig_6_union() {

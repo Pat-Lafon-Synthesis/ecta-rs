@@ -3,6 +3,7 @@ use std::hash::Hash;
 use std::{collections::HashMap, fmt::Display};
 
 use itertools::{GroupingMapBy, Itertools};
+use petgraph::dot::Config;
 use petgraph::{
     dot::Dot,
     stable_graph::{EdgeReference, NodeIndex, StableGraph},
@@ -136,8 +137,8 @@ impl<S: ECTATrait, EQ: ECTATrait + PathConstraintStringify> ECTA<S, EQ> {
         })
     }
 
-    pub fn get_dot(&self) -> Dot<&StableGraph<Node, Edge<S, EQ>>> {
-        Dot::with_config(&self.g, &[])
+    pub fn get_dot<'a>(&'a self, config: &'a [Config]) -> Dot<&StableGraph<Node, Edge<S, EQ>>> {
+        Dot::with_config(&self.g, config)
     }
 
     // Currently this just takes all edges from both nodes... But note that
